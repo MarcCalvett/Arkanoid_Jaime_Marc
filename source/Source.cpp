@@ -7,6 +7,7 @@
 #include <fstream>
 #include <sstream>
 #include <stdlib.h>
+#include <vector>
 #include "../dependencies/XML/rapidxml.hpp"
 #include "../dependencies/XML/rapidxml_utils.hpp"
 #include "../dependencies/XML/rapidxml_iterators.hpp"
@@ -27,32 +28,86 @@ int main(int argc, char* args[]) {
     std::string content(buffer.str());
     doc.parse<0>(&content[0]);
 
+    /*std::cout << "Nombre de la raíz: " << doc.first_node()->name() << "\n";
+    std::cout << "Value: " << (std::string)doc.first_node()->value() << "\n";*/
+
     rapidxml::xml_node<>* pRoot = doc.first_node();
+        
+    rapidxml::xml_attribute<>* pattr;
 
-    char *value;
-    char *brickType;
+    rapidxml::xml_node<>* pNodee = pRoot->first_node("BrickInfo");
 
-    for (rapidxml::xml_node<>* pNode = pRoot->first_node(); pNode; pNode = pNode->next_sibling()) {
+    rapidxml::xml_node<>* pNodeII = pNodee->first_node();
 
-        std::cout << pNode->name();// << ': ' << '\n';
+    std::cout<<"Game" <<"\n";
+
+    std::cout << "    " << pNodee->name()<< "\n";
+    
+    std::cout << "        Normal " << pNodeII->first_attribute()->name() << " = " << pNodeII->first_attribute()->value() << "  "; //aixo es el valor de min
+
+    std::cout << "        Normal " << pNodeII->last_attribute()->name() << " = " << pNodeII->last_attribute()->value() << "\n";
+
+    pNodeII = pNodeII->next_sibling();
+
+    std::cout << "        Heavy " << pNodeII->first_attribute()->name() << " = " << pNodeII->first_attribute()->value() << "  "; //aixo es el valor de min
+
+    std::cout << "        Heavy " << pNodeII->last_attribute()->name() << " = " << pNodeII->last_attribute()->value() << "\n";
+
+    
+    for (rapidxml::xml_node<>* pNode = pRoot->first_node("Level"); pNode; pNode = pNode->next_sibling()) {
+
+
+        //std::cout << "this should say something\n";
+        std::cout << pNode->name();
         std::cout << '\n';
 
 
         for (rapidxml::xml_node<>* pNodeI = pNode->first_node(); pNodeI; pNodeI = pNodeI->next_sibling()) {
+                   
+            std::cout << "      " << pNodeI->name() << " : "; //this says the type of block and follows up with : always says brick
 
-            std::cout << "    " << pNodeI->name() << ' : ';
-            brickType = pNodeI->value();
-            std::cout << *brickType;
+            std::cout << "i = " << pNodeI->first_attribute()->value() << "  "; //aixo es el valor de i
+
+            pattr = pNodeI->first_attribute();
+            pattr++;
             
-            std::cout << "        " << pNodeI->first_attribute()->name();
-            value = pNodeI->first_attribute()->value();// << ': ' << pNodeI->value();
-            std::cout << static_cast<int>(*value);
-            std::cout << '\n';
+            std::cout << "j = " << pattr->value(); //aixo es el valor de j
+
+            std::cout << " type = " << pNodeI->last_attribute()->value() << "\n"; //aixo es el type de brick
 
         }
         
     }
 
+    //for (rapidxml::xml_node<>* pNode = pRoot->first_node(); pNode; pNode = pNode->next_sibling()) {
+
+
+    //    std::cout << "this should say something\n";
+    //    std::cout << pNode->name();
+    //    std::cout << '\n';
+
+
+    //    for (rapidxml::xml_node<>* pNodeI = pNode->first_node(); pNodeI; pNodeI = pNodeI->next_sibling()) {
+
+
+
+
+
+
+    //        std::cout << "      " << pNodeI->name() << " : "; //this says the type of block and follows up with : always says brick
+
+    //        std::cout << "i = " << pNodeI->first_attribute()->value() << "  "; //aixo es el valor de i
+
+    //        pattr = pNodeI->first_attribute();
+    //        pattr++;
+
+    //        std::cout << "j = " << pattr->value(); //aixo es el valor de j
+
+    //        std::cout << " type = " << pNodeI->last_attribute()->value() << "\n"; //aixo es el type de brick
+
+    //    }
+
+    //}
     /*std::cout << "Nombre de la raíz: " << doc.last_node()->name() << "\n";
     std::cout << "Value: " << doc.first_attribute()->name() << "\n";*/
     /*rapidxml::xml_attribute<>* pNode;*/

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{2c2f4aa9-d8c8-4852-8458-4940977286cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Engine">
+      <UniqueIdentifier>{3a75953e-c78a-4ea2-bf72-85f6769fd3f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Exceptions">
+      <UniqueIdentifier>{83f42aac-db46-4148-b12e-bcba5ec9be8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Engine\Graphics">
+      <UniqueIdentifier>{274b41d2-a48a-4298-a0f0-7c98e987e3e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Engine\Input">
+      <UniqueIdentifier>{1c7dfe1b-12dc-46d9-b04f-da74c64ccb66}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="SDL_Exception.h">
+      <Filter>source\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Game.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Hero.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Engine\Graphics\Animation.h">
+      <Filter>source\Engine\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Engine\Graphics\Texture.h">
+      <Filter>source\Engine\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Engine\Input\Controller.h">
+      <Filter>source\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Engine\Input\InputHandler.h">
+      <Filter>source\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Engine\Input\Keyboard.h">
+      <Filter>source\Engine\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Brick.h">
+      <Filter>source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\Game.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Hero.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Source.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Engine\Graphics\Animation.cpp">
+      <Filter>source\Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Engine\Graphics\Texture.cpp">
+      <Filter>source\Engine\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Engine\Input\InputHandler.cpp">
+      <Filter>source\Engine\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Engine\Input\Keyboard.cpp">
+      <Filter>source\Engine\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Brick.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

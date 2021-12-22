@@ -22,7 +22,7 @@ void Game::Init() {
     _logoTexture->Init();
     _destLogoRect.x = 0;
     _destLogoRect.y = 0;
-    _destLogoRect.w = 800;
+    _destLogoRect.w = 800; 
     _destLogoRect.h = 600;
 
     livesP1.resize(3);

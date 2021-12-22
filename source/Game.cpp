@@ -100,7 +100,7 @@ void Game::Update(double elapsedSeconds) {
         printf("UP ");
     }
 
-    else if (keyboard->GetButtonUp(DOWN) || keyboard2->GetButtonDown(DOWN)) {
+    else if (keyboard->GetButtonUp(DOWN) || keyboard2->GetButtonUp(DOWN)) {
         printf("DOWN ");
     }
     if (keyboard->GetButton(UP) || keyboard->GetButton(DOWN) || keyboard2->GetButtonDown(UP) || keyboard2->GetButtonDown(DOWN)) {

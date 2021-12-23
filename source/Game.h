@@ -2,6 +2,7 @@
 #define SDLPROJECT_GAME_H
 #include <vector>
 
+
 class Texture;
 class Hero;
 class InputHandler;

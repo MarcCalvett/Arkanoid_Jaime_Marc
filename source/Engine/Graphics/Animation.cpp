@@ -34,6 +34,16 @@ void Animation::Render(const SDL_Rect* destRect) const {
     _texture->Render(destRect, _angle);
 }
 
+void Animation::SetSourceRect(SDL_Rect sourceRect)
+{
+    _sourceRect.x = sourceRect.x;
+    _sourceRect.y = sourceRect.y;
+    _sourceRect.w = 40;
+    _sourceRect.h = 20;
+
+    
+}
+
 void Animation::Release() {
     _texture->Release();
     delete _texture;

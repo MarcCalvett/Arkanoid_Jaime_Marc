@@ -49,6 +49,9 @@
     <ClInclude Include="source\Brick.h">
       <Filter>source</Filter>
     </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>source</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\Game.cpp">
@@ -73,6 +76,9 @@
       <Filter>source\Engine\Input</Filter>
     </ClCompile>
     <ClCompile Include="source\Brick.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

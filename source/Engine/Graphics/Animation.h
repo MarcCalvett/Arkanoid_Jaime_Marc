@@ -17,6 +17,8 @@ public:
 
     void Render(const SDL_Rect* destRect) const;
 
+    void SetSourceRect(SDL_Rect sourceRect);
+
 private:
     Texture* _texture;
     int _frames;

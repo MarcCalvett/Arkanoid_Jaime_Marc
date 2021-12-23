@@ -44,7 +44,7 @@ void Hero::Update(double elapsedSeconds) {
     }
    // _destHeroRect.x = _heroXPosition;
     
-    _heroAnimation->Update(elapsedSeconds);
+    //_heroAnimation->Update(elapsedSeconds);
 }
 
 void Hero::Render() {

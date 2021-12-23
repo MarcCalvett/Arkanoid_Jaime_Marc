@@ -5,6 +5,9 @@
 #include "Hero.h"
 #include "Engine/Input/InputHandler.h"
 #include "Engine/Input/Keyboard.h"
+#include "Brick.h"
+#include ""
+
 
 const int UP = 1;
 const int DOWN = 2;
@@ -16,6 +19,7 @@ void Game::Init() {
     InitSDL();
     CreateWindowAndRender();
     SDL_SetRenderDrawColor(_renderer, 255, 255, 255, 255);
+
 
 
     _logoTexture = new Texture("resources/Backgroung.jpg", _renderer,0);

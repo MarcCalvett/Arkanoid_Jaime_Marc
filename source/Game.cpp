@@ -1,3 +1,4 @@
+
 #include <SDL.h>
 #include "Game.h"
 #include "Exceptions/SDL_Exception.h"
@@ -6,7 +7,9 @@
 #include "Engine/Input/InputHandler.h"
 #include "Engine/Input/Keyboard.h"
 #include "Brick.h"
-#include ""
+
+
+
 
 
 const int UP = 1;
@@ -20,7 +23,7 @@ void Game::Init() {
     CreateWindowAndRender();
     SDL_SetRenderDrawColor(_renderer, 255, 255, 255, 255);
 
-
+    
 
     _logoTexture = new Texture("resources/Backgroung.jpg", _renderer,0);
     _logoTexture->Init();
@@ -63,7 +66,8 @@ void Game::Init() {
     _hero2 = new Hero(_renderer, keyboard2, -90, 710, 300, 80, 20, 0);
     _hero2->Init();
 
-    
+    _map = new Map(_renderer);
+    _map->Init();
 
     _isRunning = true;
 }
@@ -147,6 +151,7 @@ void Game::Render() {
     
     _hero->Render();
     _hero2->Render();
+    _map->Render();
 
     SDL_RenderPresent(_renderer);
 }

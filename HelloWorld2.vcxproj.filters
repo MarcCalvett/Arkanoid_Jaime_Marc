@@ -46,10 +46,10 @@
     <ClInclude Include="source\Engine\Input\Keyboard.h">
       <Filter>source\Engine\Input</Filter>
     </ClInclude>
-    <ClInclude Include="source\Brick.h">
+    <ClInclude Include="source\Map.h">
       <Filter>source</Filter>
     </ClInclude>
-    <ClInclude Include="Map.h">
+    <ClInclude Include="source\Brick.h">
       <Filter>source</Filter>
     </ClInclude>
   </ItemGroup>
@@ -75,10 +75,10 @@
     <ClCompile Include="source\Engine\Input\Keyboard.cpp">
       <Filter>source\Engine\Input</Filter>
     </ClCompile>
-    <ClCompile Include="source\Brick.cpp">
+    <ClCompile Include="source\Map.cpp">
       <Filter>source</Filter>
     </ClCompile>
-    <ClCompile Include="Map.cpp">
+    <ClCompile Include="source\Brick.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

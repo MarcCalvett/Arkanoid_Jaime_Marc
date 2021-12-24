@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Map.h" />
     <ClInclude Include="SDL_Exception.h" />
     <ClInclude Include="source\Brick.h" />
     <ClInclude Include="source\Engine\Graphics\Animation.h" />
@@ -29,9 +28,9 @@
     <ClInclude Include="source\Engine\Input\Keyboard.h" />
     <ClInclude Include="source\Game.h" />
     <ClInclude Include="source\Hero.h" />
+    <ClInclude Include="source\Map.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Map.cpp" />
     <ClCompile Include="source\Brick.cpp" />
     <ClCompile Include="source\Engine\Graphics\Animation.cpp" />
     <ClCompile Include="source\Engine\Graphics\Texture.cpp" />
@@ -39,6 +38,7 @@
     <ClCompile Include="source\Engine\Input\Keyboard.cpp" />
     <ClCompile Include="source\Game.cpp" />
     <ClCompile Include="source\Hero.cpp" />
+    <ClCompile Include="source\Map.cpp" />
     <ClCompile Include="source\Source.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

@@ -1,39 +1,48 @@
 #include "Brick.h"
-#include "Engine/Graphics/Animation.h"
-#include <iostream>
+//#include "Engine/Graphics/Animation.h"
+//#include <iostream>
 #include "../dependencies/XML/rapidxml.hpp"
 #include "../dependencies/XML/rapidxml_utils.hpp"
 #include "../dependencies/XML/rapidxml_iterators.hpp"
 #include "../dependencies/XML/rapidxml_print.hpp"
 #include <sstream>
 
+Brick::Brick()
+{
+    Print = false;
+}
+
 Brick::Brick(SDL_Renderer* renderer, double angle, int destBrickRectX, int destBrickRectY, int destBrickRectW, int destBrickRectH, int brickXPos, BrickType type)
 	: _renderer(renderer), _angle(angle), _type(type)
 {
+    Print = true;
     _destBrickRect.x = destBrickRectX;
     _destBrickRect.y = destBrickRectY;
-    _destBrickRect.w = destBrickRectW;
-    _destBrickRect.h = destBrickRectH;
+    _destBrickRect.w = 38.1;
+    _destBrickRect.h = 19.05;
 
-    _brickXPosition = brickXPos;
+   // _brickXPosition = brickXPos;
 
     switch (_type)
     {
     case BrickType::F:
         _sourceRect.x = 0;
         _sourceRect.y = 40;
-        _brickAnimation->SetSourceRect(_sourceRect);
+        Init();
+       // _brickAnimation->Init(_sourceRect.x, _sourceRect.y);
         break;
     case BrickType::N:
         _sourceRect.x = 0;
         _sourceRect.y = 0;
-        _brickAnimation->SetSourceRect(_sourceRect);
+        Init();
+        //_brickAnimation->Init(_sourceRect.x, _sourceRect.y);
         SetMaxMinToBreakN(_minHitsToBreak,_maxHitsToBreak);        
         break;
     case BrickType::H:
         _sourceRect.x = 0;
         _sourceRect.y = 20;
-        _brickAnimation->SetSourceRect(_sourceRect);
+        Init();
+        //_brickAnimation->Init(_sourceRect.x, _sourceRect.y);
         SetMaxMinToBreakH(_minHitsToBreak, _maxHitsToBreak);
         break;
     default:
@@ -44,10 +53,13 @@ Brick::Brick(SDL_Renderer* renderer, double angle, int destBrickRectX, int destB
 void Brick::Init()
 {
     //_brickAnimation = new Animation("resources/platform.png", _renderer, 10, 1, 707, 587, _angle);
-    _brickAnimation = new Animation("resources/bricks.jpg", _renderer, 5, 1, 20, 40, _angle);
+
+    _sourceRect.w = 40;
+    _sourceRect.h = 20;
+    _brickAnimation = new Animation("resources/bricks.jpg", _renderer, _angle,_sourceRect);
 
     _brickAnimation->Init();
-    
+    //Render();
 }
 
 void Brick::Update(double elapsedSeconds)

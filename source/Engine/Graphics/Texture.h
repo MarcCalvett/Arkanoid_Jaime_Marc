@@ -8,6 +8,7 @@
 class Texture {
 public:
     Texture(std::string path, SDL_Renderer* renderer, double angle);
+    Texture(std::string path, SDL_Renderer* renderer, double angle, SDL_Rect sourceRect);
 
     void Init();
     void Release();
@@ -15,11 +16,13 @@ public:
     void SetSourceRect(const SDL_Rect* rect);
 
     void Render(const SDL_Rect* destRect, double angle) const;
+    void Render(const SDL_Rect* destRect, double angle, SDL_Rect sourceRect);
 
 private:
     std::string _path;
     SDL_Renderer* _renderer;
     SDL_Rect _sourceRect;    
+   // SDL_Rect _sourceRectBrick;
     SDL_Texture* _texture;    
     double _angle;
 };

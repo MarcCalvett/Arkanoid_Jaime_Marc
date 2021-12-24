@@ -8,16 +8,18 @@ class Texture;
 
 class Animation {
 public:
-    Animation(std::string path, SDL_Renderer* renderer, int frames, float duration, int frameHeight, int frameWidth, double angle);
+    Animation(std::string path, SDL_Renderer* renderer, double angle, SDL_Rect sourceRect);
 
     void Init();
+    
     void Release();
 
     void Update(double elapsedSeconds);
 
     void Render(const SDL_Rect* destRect) const;
+    void Render(const SDL_Rect* destRect, SDL_Rect _sourceRect);
 
-    void SetSourceRect(SDL_Rect sourceRect);
+    
 
 private:
     Texture* _texture;

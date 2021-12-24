@@ -1,3 +1,4 @@
+#pragma once
 #ifndef SDLPROJECT_HERO_H
 #define SDLPROJECT_HERO_H
 
@@ -27,6 +28,7 @@ private:
     
     Animation* _heroAnimation;
     SDL_Rect _destHeroRect;
+    SDL_Rect sourceRect;
     float _heroXPosition;
     double _angle;
 };

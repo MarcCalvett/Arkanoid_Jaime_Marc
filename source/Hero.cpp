@@ -20,8 +20,9 @@ Hero::Hero(SDL_Renderer* renderer, Controller* controller, double angle, int des
 void Hero::Init() {
 
 
-
-    _heroAnimation = new Animation("resources/platform.png", _renderer, 10, 1, 707, 587,_angle);  
+    sourceRect.w = 60;
+    sourceRect.h = 20;
+    _heroAnimation = new Animation("resources/platform.png", _renderer,_angle,sourceRect);  
 
    _heroAnimation->Init();
    /*

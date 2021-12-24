@@ -2,18 +2,19 @@
 #include <utility>
 #include "Texture.h"
 
-Animation::Animation(std::string path, SDL_Renderer* renderer, int frames, float duration, int frameHeight,
-    int frameWidth, double angle) : _angle(angle),_texture(
-        new Texture(std::move(path), renderer, _angle)), _frames(frames), _duration(duration), _currentTime(0.0f),
-    _sourceRect(),
-    _frameHeight(frameHeight), _frameWidth(frameWidth){
+Animation::Animation(std::string path, SDL_Renderer* renderer, double angle, SDL_Rect sourceRect) : _angle(angle), 
+    _sourceRect(sourceRect)
+{
+
+    _texture = new Texture(std::move(path), renderer, _angle, _sourceRect);
 
 }
 
 void Animation::Init() {
+
     _texture->Init();
-    _sourceRect.w = _frameWidth;
-    _sourceRect.h = _frameHeight;
+    /*_sourceRect.w = _frameWidth;
+    _sourceRect.h = _frameHeight;*/
     
 }
 
@@ -34,14 +35,8 @@ void Animation::Render(const SDL_Rect* destRect) const {
     _texture->Render(destRect, _angle);
 }
 
-void Animation::SetSourceRect(SDL_Rect sourceRect)
-{
-    _sourceRect.x = sourceRect.x;
-    _sourceRect.y = sourceRect.y;
-    _sourceRect.w = 40;
-    _sourceRect.h = 20;
-
-    
+void Animation::Render(const SDL_Rect* destRect,SDL_Rect sourceRect) {
+    _texture->Render(destRect, _angle, _sourceRect);
 }
 
 void Animation::Release() {

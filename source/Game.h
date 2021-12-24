@@ -1,11 +1,13 @@
+#pragma once
 #ifndef SDLPROJECT_GAME_H
 #define SDLPROJECT_GAME_H
 #include <vector>
-
+#include "Map.h"
 
 class Texture;
 class Hero;
 class InputHandler;
+class map;
 
 class Game {
 public:
@@ -43,6 +45,7 @@ private:
 
     Hero* _hero;
     Hero* _hero2;
+    Map* _map;
 
     InputHandler* _inputHandler;
 };

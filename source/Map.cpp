@@ -103,13 +103,13 @@ void Map::Init()
            //int holder = *typeB;
            type = CharToBrick(*typeB);
 
-            float destXP = 271 + (19.05 * j);
-            float destYP = 38.1 * i;
+            float destXP = 271 + (20 * j);
+            float destYP = -5 + 40 * i;
                       
            //35.45
            //17.72
 
-          map[i][j] = *new Brick(_renderer, 90, destXP, destYP, 38.1, 19.05, 0, type);
+          map[i][j] = *new Brick(_renderer, 90, destXP, destYP, 40, 20, 0, type);
           // map[i][j].Render();
             /*ip = nullptr;
             delete ip;*/

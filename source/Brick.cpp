@@ -18,8 +18,8 @@ Brick::Brick(SDL_Renderer* renderer, double angle, int destBrickRectX, int destB
     Print = true;
     _destBrickRect.x = destBrickRectX;
     _destBrickRect.y = destBrickRectY;
-    _destBrickRect.w = 38.1;
-    _destBrickRect.h = 19.05;
+    _destBrickRect.w = 40;
+    _destBrickRect.h = 20;
 
    // _brickXPosition = brickXPos;
 

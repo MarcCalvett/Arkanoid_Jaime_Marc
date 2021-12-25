@@ -1,5 +1,5 @@
 
-#include <SDL.h>
+
 #include "Game.h"
 #include "Exceptions/SDL_Exception.h"
 #include "Engine/Graphics/Texture.h"
@@ -7,6 +7,7 @@
 #include "Engine/Input/InputHandler.h"
 #include "Engine/Input/Keyboard.h"
 #include "Brick.h"
+
 
 
 
@@ -22,15 +23,21 @@ void Game::Init() {
     InitSDL();
     CreateWindowAndRender();
     SDL_SetRenderDrawColor(_renderer, 255, 255, 255, 255);
-
-    
-
+  
     _logoTexture = new Texture("resources/Backgroung.jpg", _renderer,0);
     _logoTexture->Init();
     _destLogoRect.x = 0;
     _destLogoRect.y = 0;
     _destLogoRect.w = 800; 
     _destLogoRect.h = 600;
+
+    _destPP1Rect.x = 75;
+    _destPP1Rect.y = 495;
+    
+
+    _destPP2Rect.x = 460;
+    _destPP2Rect.y = 495;
+    
 
     livesP1.resize(3);
     livesP2.resize(3);
@@ -66,6 +73,8 @@ void Game::Init() {
     _hero2 = new Hero(_renderer, keyboard2, -90, 710, 300, 80, 20, 0);
     _hero2->Init();
 
+    
+    
     _map = new Map(_renderer);
     _map->Init();
 
@@ -118,6 +127,10 @@ void Game::Update(double elapsedSeconds) {
     _hero->Update(elapsedSeconds);
     _hero2->Update(elapsedSeconds);
 
+    
+    
+    PP1 = new Texture(_hero->_points, 1, _renderer);
+    PP2 = new Texture(_hero->_points, 2, _renderer);
 }
 
 void Game::Render() {
@@ -148,12 +161,26 @@ void Game::Render() {
         _livesRect2.x += 90;
     }
 
-    
+    _destPP1Rect.w = PP1->widthPP*4;
+    _destPP1Rect.h = PP1->heigthPP*4;
+    _destPP2Rect.w = PP2->widthPP*4;
+    _destPP2Rect.h = PP2->heigthPP*4;
+
+
+    PP1->Render(&_destPP1Rect, 0);
+    PP2->Render(&_destPP2Rect, 0);
     _hero->Render();
     _hero2->Render();
     _map->Render();
 
+
+    
     SDL_RenderPresent(_renderer);
+
+    delete PP1;
+    delete PP2;
+
+    
 }
 
 void Game::Release() {

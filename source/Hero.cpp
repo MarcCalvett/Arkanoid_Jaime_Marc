@@ -9,6 +9,8 @@ const int DOWN = 2;
 Hero::Hero(SDL_Renderer* renderer, Controller* controller, double angle, int destHeroRectX, int destHeroRectY, int destHeroRectW, int destHeroRectH, int heroXPos
 ) : _renderer(renderer), _controller(controller), _angle(angle) {
 
+    _points = 0;
+
     _destHeroRect.x = destHeroRectX;
     _destHeroRect.y = destHeroRectY;
     _destHeroRect.w = destHeroRectW;
@@ -19,7 +21,7 @@ Hero::Hero(SDL_Renderer* renderer, Controller* controller, double angle, int des
 
 void Hero::Init() {
 
-
+    
     sourceRect.w = 60;
     sourceRect.h = 20;
     _heroAnimation = new Animation("resources/platform.png", _renderer,_angle,sourceRect);  
@@ -38,10 +40,22 @@ void Hero::Update(double elapsedSeconds) {
     if (_controller->GetButtonDown(DOWN) && _destHeroRect.y < 419) {
        // std::cout << "polla";
         _destHeroRect.y = _destHeroRect.y + 10000 * elapsedSeconds;
+        if (_destHeroRect.y > 419) {
+            _destHeroRect.y = 419;
+        }
+        if (_points > 0) {
+            _points--;
+        }
         //std::cout << _destHeroRect.y;
     }
     if (_controller->GetButtonDown(UP) && _destHeroRect.y > 60) {
         _destHeroRect.y = _destHeroRect.y - 10000 * elapsedSeconds;
+        if (_destHeroRect.y < 60) {
+            _destHeroRect.y = 60;
+        }
+        _points++;
+        
+            
     }
    // _destHeroRect.x = _heroXPosition;
     

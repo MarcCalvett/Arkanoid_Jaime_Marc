@@ -3,6 +3,38 @@
 #include <assert.h>
 #include <utility>
 #include "Texture.h"
+#include <string>
+#include <sstream>
+
+
+Texture::Texture(float points,int numberPlayer, SDL_Renderer* renderer):_renderer(renderer),_angle(0)
+{
+    
+    
+    TTF_Font* Sans = TTF_OpenFont("resources/Game_Over.ttf",24); //this opens a font style and sets a size
+      
+       // if (TTF_Init() != 0) throw"No es pot inicialitzar SDL_ttf";
+   // TTF_Init();
+    
+    std::stringstream PP;
+    PP << "PP" << numberPlayer << ": " << points;
+
+    SDL_Color Red = { 255, 0, 0 };  // this is the color in rgb format, maxing out all would give you the color white, and it will be your text's color
+
+    SDL_Surface* surfaceMessage = TTF_RenderText_Solid(Sans , PP.str().c_str(), Red); // as TTF_RenderText_Solid could only be used on S
+
+    
+
+    _texture = SDL_CreateTextureFromSurface(_renderer, surfaceMessage);
+
+    SDL_QueryTexture(_texture, nullptr, nullptr, &_sourceRect.w, &_sourceRect.h);
+    heigthPP = _sourceRect.h;
+    widthPP = _sourceRect.w;
+    _sourceRect.x = 0;
+    _sourceRect.y = 0;
+    
+    SDL_FreeSurface(surfaceMessage);
+}
 
 Texture::Texture(std::string path, SDL_Renderer* renderer, double angle) : _path(std::move(path)),
 _renderer(renderer),
@@ -61,6 +93,7 @@ void Texture::Render(const SDL_Rect* destRect, double angle, SDL_Rect sourceRect
 
     SDL_RenderCopyEx(_renderer, _texture, &_sourceRect, destRect, angle, NULL, SDL_FLIP_NONE);
 }
+
 
 void Texture::Release() {
     SDL_DestroyTexture(_texture);

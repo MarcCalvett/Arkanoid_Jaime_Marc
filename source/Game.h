@@ -4,6 +4,7 @@
 #include <vector>
 #include "Map.h"
 
+
 class Texture;
 class Hero;
 class InputHandler;
@@ -41,11 +42,14 @@ private:
     SDL_Point point;
     std::vector<Texture*>livesP1;
     std::vector<Texture*>livesP2;
-      
-
+    SDL_Texture* puntuationP1;
+    Texture* PP1;
+    Texture* PP2;
     Hero* _hero;
     Hero* _hero2;
     Map* _map;
+    SDL_Rect _destPP1Rect;
+    SDL_Rect _destPP2Rect;
 
     InputHandler* _inputHandler;
 };

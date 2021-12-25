@@ -18,14 +18,14 @@ public:
 
     void Render();
 
-    
+    float _points;
 
     
 
 private:
     SDL_Renderer* _renderer;
     Controller* _controller;
-    
+   
     Animation* _heroAnimation;
     SDL_Rect _destHeroRect;
     SDL_Rect sourceRect;

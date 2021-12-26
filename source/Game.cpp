@@ -130,7 +130,7 @@ void Game::Update(double elapsedSeconds) {
     
     
     PP1 = new Texture(_hero->_points, 1, _renderer);
-    PP2 = new Texture(_hero->_points, 2, _renderer);
+    PP2 = new Texture(_hero2->_points, 2, _renderer);
 }
 
 void Game::Render() {

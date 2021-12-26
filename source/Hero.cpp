@@ -39,7 +39,7 @@ void Hero::Init() {
 void Hero::Update(double elapsedSeconds) {
     if (_controller->GetButtonDown(DOWN) && _destHeroRect.y < 419) {
        // std::cout << "polla";
-        _destHeroRect.y = _destHeroRect.y + 10000 * elapsedSeconds;
+        _destHeroRect.y = _destHeroRect.y + 1000 * elapsedSeconds;
         if (_destHeroRect.y > 419) {
             _destHeroRect.y = 419;
         }
@@ -49,7 +49,7 @@ void Hero::Update(double elapsedSeconds) {
         //std::cout << _destHeroRect.y;
     }
     if (_controller->GetButtonDown(UP) && _destHeroRect.y > 60) {
-        _destHeroRect.y = _destHeroRect.y - 10000 * elapsedSeconds;
+        _destHeroRect.y = _destHeroRect.y - 1000 * elapsedSeconds;
         if (_destHeroRect.y < 60) {
             _destHeroRect.y = 60;
         }

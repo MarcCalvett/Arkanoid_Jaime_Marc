@@ -114,14 +114,14 @@ void Game::HandleEvents() {
 
 void Game::Update(double elapsedSeconds) {
     if (keyboard->GetButtonDown(UP) || keyboard2->GetButtonDown(UP)) {
-        printf("UP ");
+        printf("UP\n");
     }
 
-    else if (keyboard->GetButtonUp(DOWN) || keyboard2->GetButtonUp(DOWN)) {
-        printf("DOWN ");
+    if (keyboard->GetButtonUp(DOWN) || keyboard2->GetButtonUp(UP) || keyboard2->GetButtonUp(DOWN) || keyboard->GetButtonUp(UP)) {
+        printf("Stopped Pressing\n");
     }
-    if (keyboard->GetButton(UP) || keyboard->GetButton(DOWN) || keyboard2->GetButtonDown(UP) || keyboard2->GetButtonDown(DOWN)) {
-        printf("Button ");
+    if (keyboard->GetButtonDown(DOWN) || keyboard2->GetButtonDown(DOWN)) {
+        printf("Down\n");
     }
 
     _hero->Update(elapsedSeconds);
@@ -130,7 +130,7 @@ void Game::Update(double elapsedSeconds) {
     
     
     PP1 = new Texture(_hero->_points, 1, _renderer);
-    PP2 = new Texture(_hero->_points, 2, _renderer);
+    PP2 = new Texture(_hero2->_points, 2, _renderer);
 }
 
 void Game::Render() {
